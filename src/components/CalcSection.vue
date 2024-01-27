@@ -5,19 +5,20 @@
       <div class="sub-title">Bill</div>
       <div class="icon-parent">
         <div class="icon"><img src="" alt="$"></div>
-        <input type="number" name="bill"  class="input-field" inputmode="decimal">
+        <input type="number" name="bill" :value="store.bill" @input="(e) => store.updateBill(Number((e.target as HTMLInputElement).value))" class="input-field" inputmode="decimal">
       </div>
     </div>
     <!-- Tip -->
     <div>
       <div class="sub-title tip-title">Select Tip %</div>
       <div class="options-container">
-        <button class="option icon-parent" v-for="option in tipOptions" @click="updateTip(option); isCustom = false"
-          :class="{ 'lighter-bg': option === chosenTip && !isCustom }">
+        <button class="option icon-parent" v-for="option in tipOptions" @click="store.updateTip(option); isCustom = false"
+          :class="{ 'lighter-bg': option === store.tipAmount && !isCustom }">
           <div class="btn-txt">{{ option }}%</div>
         </button>
-        <div @click="isCustom = true">
-          <input placeholder="Custom" min="1" type="number" inputmode="decimal" @input="(e) => updateTip(Number((e.target as HTMLInputElement).value))" class="custom-input-field">
+        <div class="icon-parent" @click="isCustom = true">
+          <div v-if="!isCustom" class="abs">Custom</div>
+          <input :style="!isCustom ? {color:'transparent'} : {color:'#024749'}" :value="store.customTipAmount" placeholder="Custom" min="1" type="number" inputmode="decimal" @input="(e) => {store.updateTip(Number((e.target as HTMLInputElement).value)); store.updateCustomTip(Number((e.target as HTMLInputElement).value))}" class="custom-input-field">
         </div>
       </div>
     </div>
@@ -26,7 +27,7 @@
       <div class="sub-title tip-title">Number of People</div>
       <div class="icon-parent">
         <div class="icon"><img src="" alt="Person"></div>
-        <input type="number" min="1" max="100" inputmode="numeric" name="people" class="input-field">
+        <input type="number" :value="store.people" @input="(e) => store.updatePeople(Number((e.target as HTMLInputElement).value))" min="1" max="100" inputmode="numeric" name="people" class="input-field">
       </div>
     </div>
   </div>
@@ -34,18 +35,23 @@
   
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useTipStore } from './../store'
 
-const chosenTip = ref<number>(15);
+const store = useTipStore();
+
+
 const isCustom = ref<boolean>(false);
 const tipOptions = ref<number[]>([5, 10, 15, 25, 50]);
-
-const updateTip = (num: number) => {
-  chosenTip.value = num
-}
 
 </script>
 
 <style scoped>
+.abs {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #3C6464;
+}
 .mt {
   margin-top: 2rem;
 }

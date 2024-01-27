@@ -6,22 +6,24 @@
           <div class="white-txt">Tip Amount</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">{{ "$4.27" }}</div>
+        <div class="amount-txt">{{ store.tipPerPerson.toFixed(2) }}</div>
       </div>
       <div class="flex mt">
         <div>
           <div class="white-txt">Total</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">{{ "$32.79" }}</div>
+        <div class="amount-txt">{{ store.totalPerPerson.toFixed(2) }}</div>
       </div>
     </div>
-    <button class="mt">RESET</button>
+    <button class="mt" @click="store.resetAll()">RESET</button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useTipStore } from './../store'
 
+const store = useTipStore();
 </script>
 
 <style scoped>
