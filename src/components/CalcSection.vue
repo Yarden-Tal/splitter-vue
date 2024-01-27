@@ -10,20 +10,20 @@
     </div>
     <!-- Tip -->
     <div>
-      <div class="sub-title">Select Tip %</div>
+      <div class="sub-title tip-title">Select Tip %</div>
       <div class="options-container">
-        <div class="option icon-parent" v-for="option in tipOptions" @click="updateTip(option); isCustom = false"
+        <button class="option icon-parent" v-for="option in tipOptions" @click="updateTip(option); isCustom = false"
           :class="{ 'lighter-bg': option === chosenTip && !isCustom }">
-          <div class="btn-txt">{{ option }}$</div>
-        </div>
+          <div class="btn-txt">{{ option }}%</div>
+        </button>
         <div @click="isCustom = true">
           <input placeholder="Custom" min="1" type="number" inputmode="decimal" @input="(e) => updateTip(Number((e.target as HTMLInputElement).value))" class="custom-input-field">
         </div>
       </div>
     </div>
     <!-- Number of people -->
-    <div>
-      <div class="sub-title">Number of People</div>
+    <div class="mt">
+      <div class="sub-title tip-title">Number of People</div>
       <div class="icon-parent">
         <div class="icon"><img src="" alt="Person"></div>
         <input type="number" min="1" max="100" inputmode="numeric" name="people" class="input-field">
@@ -46,6 +46,9 @@ const updateTip = (num: number) => {
 </script>
 
 <style scoped>
+.mt {
+  margin-top: 2rem;
+}
 .input-field {
   text-align: right;
   color: #024749;
@@ -73,6 +76,9 @@ input:focus-within {
 .sub-title {
   color: #3C6464;
 }
+.tip-title {
+  margin: 2rem 0 1rem 0;
+}
 
 .options-container {
   display: grid;
@@ -92,7 +98,9 @@ input:focus-within {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .radio {
