@@ -5,7 +5,7 @@
       <div class="sub-title">Bill</div>
       <div class="icon-parent">
         <div class="icon"><img src="" alt="$"></div>
-        <input type="number" name="bill" min="1" class="input-field" inputmode="decimal">
+        <input type="number" name="bill"  class="input-field" inputmode="decimal">
       </div>
     </div>
     <!-- Tip -->
@@ -17,7 +17,7 @@
           <div class="btn-txt">{{ option }}$</div>
         </div>
         <div @click="isCustom = true">
-          <input placeholder="Custom" min="1" type="number" inputmode="decimal" @input="(e) => updateTip(e.target!.value)" class="custom-input-field">
+          <input placeholder="Custom" min="1" type="number" inputmode="decimal" @input="(e) => updateTip(Number((e.target as HTMLInputElement).value))" class="custom-input-field">
         </div>
       </div>
     </div>
