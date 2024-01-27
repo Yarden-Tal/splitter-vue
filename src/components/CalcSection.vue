@@ -48,9 +48,10 @@ const tipOptions = ref<number[]>([5, 10, 15, 25, 50]);
 <style scoped>
 .abs {
   position: absolute;
-  right: 5px;
-  top: 10px;
+  right: 12px;
+  top: 12px;
   color: #3C6464;
+  font-weight: 900;
 }
 .mt {
   margin-top: 2rem;
