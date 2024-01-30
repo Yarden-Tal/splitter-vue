@@ -6,14 +6,14 @@
           <div class="white-txt">Tip Amount</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">{{ store.tipPerPerson.toFixed(2) }}</div>
+        <div class="amount-txt">{{ store.tipPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
       </div>
       <div class="flex mt">
         <div>
           <div class="white-txt">Total</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">{{ store.totalPerPerson.toFixed(2) }}</div>
+        <div class="amount-txt">{{ store.totalPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
       </div>
     </div>
     <button class="mt" @click="store.resetAll()">RESET</button>
@@ -22,7 +22,6 @@
 
 <script setup lang="ts">
 import { useTipStore } from './../store'
-
 const store = useTipStore();
 </script>
 

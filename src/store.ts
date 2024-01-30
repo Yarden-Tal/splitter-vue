@@ -1,26 +1,26 @@
 import { defineStore } from 'pinia'
 
 export const useTipStore = defineStore('tips', {
-  state: () => ({ bill: 0, tipAmount: 15, people: 1, customTipAmount: 0 }),
+  state: () => ({ bill: 0 satisfies number, tipAmount: 15 satisfies number, people: 1 satisfies number, customTipAmount: 0 satisfies number }),
   getters: {
-    total: (state) => state.bill + (state.bill * state.tipAmount) / 100,
-    tipPerPerson: (state) => (state.bill * state.tipAmount) / (100 * (state.people || 1)),
-    totalPerPerson: (state) => (state.bill + (state.bill * state.tipAmount) / 100) / (state.people || 1)
+    total: (state) => state.bill + (state.bill * state.tipAmount) / 100 satisfies number,
+    tipPerPerson: (state) => (state.bill * state.tipAmount) / (100 * (state.people || 1)) satisfies number,
+    totalPerPerson: (state) => (state.bill + (state.bill * state.tipAmount) / 100) / (state.people || 1) satisfies number
   },
   actions: {
-    updateBill(newBill: number) {
+    updateBill(newBill: number): void {
       this.bill = newBill;
     },
-    updateTip(newTip: number) {
+    updateTip(newTip: number): void {
       this.tipAmount = newTip;
     },
-    updatePeople(newNum: number) {
+    updatePeople(newNum: number): void {
       this.people = newNum;
     },
-    updateCustomTip(newNum: number) {
+    updateCustomTip(newNum: number): void {
       this.customTipAmount = newNum;
     },
-    resetAll() {
+    resetAll(): void {
       this.bill = 0;
       this.tipAmount = 15;
       this.people = 1;
