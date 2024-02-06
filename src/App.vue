@@ -23,10 +23,16 @@ import MainTitle from './components/MainTitle.vue';
   box-sizing: inherit;
 }
 
+html {
+  display: flex;
+  justify-content: center;
+}
+
 body {
   background-color: #C5E4E8;
   box-sizing: border-box;
   margin: 0;
+  width: 320px;
 }
 
 main {
