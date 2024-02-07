@@ -42,6 +42,7 @@ main {
   background-color: #fff;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
+  max-width: 1045px;
 }
 .main-inner {
   padding: 30px;
