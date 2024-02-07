@@ -48,6 +48,7 @@ const store = useTipStore();
   color: #26C2AE;
   font-weight: 900;
   font-size: 1.5rem;
+  overflow: auto;
 }
 .summary-section {
   margin-top: 2rem;
