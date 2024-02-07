@@ -42,10 +42,12 @@ const store = useTipStore();
 }
 .white-txt {
   color: #FFF;
+  margin-bottom: 0.2em;
 }
 .amount-txt {
   color: #26C2AE;
   font-weight: 900;
+  font-size: 1.5rem;
 }
 .summary-section {
   margin-top: 2rem;
@@ -73,5 +75,8 @@ button {
     .flex {
     gap: 6rem;
   }
+  .amount-txt {
+  font-size: 2rem;
+}
   }
 </style>

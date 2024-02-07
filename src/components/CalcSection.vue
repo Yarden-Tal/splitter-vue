@@ -168,4 +168,11 @@ input:focus-visible {
 .lighter-bg {
   background-color: #26C2AE;
   color: #00474B;
-}</style>
+}
+@media screen and (min-width: 768px) {
+.zero-error {
+  top: -40px;
+  left: 204px;
+}
+}
+</style>
