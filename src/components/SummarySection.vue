@@ -6,14 +6,14 @@
           <div class="white-txt">Tip Amount</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">{{ store.tipPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
+        <div class="amount-txt">${{ store.tipPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
       </div>
       <div class="flex mt">
         <div>
           <div class="white-txt">Total</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">{{ store.totalPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
+        <div class="amount-txt">${{ store.totalPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
       </div>
     </div>
     <button class="mt" @click="store.resetAll()">RESET</button>
@@ -60,4 +60,15 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+@media screen and (min-width: 768px) {
+  .summary-section {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    .flex {
+    gap: 6rem;
+  }
+  }
 </style>

@@ -32,7 +32,7 @@ body {
   background-color: #C5E4E8;
   box-sizing: border-box;
   margin: 0;
-  width: 320px;
+  min-width: 280px;
 }
 
 main {
@@ -42,5 +42,15 @@ main {
 }
 .main-inner {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .main-inner {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
 }
 </style>
