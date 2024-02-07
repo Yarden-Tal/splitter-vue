@@ -18,12 +18,14 @@
     <div>
       <div class="sub-title tip-title">Select Tip %</div>
       <div class="options-container">
+        <!-- Single option -->
         <button class="option icon-parent" v-for="option in tipOptions" @click="store.updateTip(option); isCustom = false"
           :class="{ 'lighter-bg': option === store.tipAmount && !isCustom }">
           <div class="btn-txt">{{ option }}%</div>
         </button>
         <div class="icon-parent" @click="isCustom = true">
           <div v-if="!isCustom" class="abs">Custom</div>
+          <!-- Custom input -->
           <input :style="!isCustom ? { color: 'transparent' } : { color: '#024749' }" :value="store.customTipAmount"
             placeholder="Custom" min="1" type="number" inputmode="decimal"
             @input="(e) => { store.updateTip(Number((e.target as HTMLInputElement).value)); store.updateCustomTip(Number((e.target as HTMLInputElement).value)) }"
@@ -75,9 +77,10 @@ const updatePeople = (num: number) => {
 .abs {
   position: absolute;
   right: 12px;
-  top: 12px;
+  top: 4px;
   color: #3C6464;
   font-weight: 900;
+  font-size: 1.5rem;
 }
 
 .mt {
@@ -117,7 +120,7 @@ input:focus-visible {
 }
 
 .sub-title {
-  color: #3C6464;
+  color: #3c6464bf;;
 }
 
 .tip-title {
@@ -134,6 +137,7 @@ input:focus-visible {
 
 .option {
   color: #FFF;
+  font-size: 1.25rem;
   font-weight: 900;
   text-align: center;
   width: 100%;
@@ -155,6 +159,7 @@ input:focus-visible {
 
 .custom-input-field {
   text-align: right;
+  font-size: 1.5rem;
   color: #3C6464;
   font-weight: 900;
   width: 100%;
@@ -169,10 +174,13 @@ input:focus-visible {
   background-color: #26C2AE;
   color: #00474B;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
 .zero-error {
   top: -40px;
   left: 204px;
+}
+.option, .abs {
+  font-size: 1.45rem;
 }
 }
 </style>

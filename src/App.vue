@@ -9,8 +9,8 @@ import MainTitle from './components/MainTitle.vue';
     <MainTitle />
     <main>
       <div class="main-inner">
-        <CalcSection />
-        <SummarySection />
+        <CalcSection class="half-w" />
+        <SummarySection class="half-w" />
       </div>
     </main>
   </div>
@@ -50,13 +50,16 @@ main {
   gap: 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   html {
   height: 100%;
   }
   .main-inner {
     flex-direction: row;
     gap: 2.5rem;
+  }
+  .half-w {
+    width: 50%;
   }
 }
 </style>

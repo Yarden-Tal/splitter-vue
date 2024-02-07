@@ -65,7 +65,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .summary-section {
     margin-top: 0;
     display: flex;
@@ -76,7 +76,7 @@ button {
     gap: 6rem;
   }
   .amount-txt {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
   }
 </style>
