@@ -16,7 +16,7 @@
         <div class="amount-txt">${{ store.totalPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
       </div>
     </div>
-    <button class="mt" @click="store.resetAll()">RESET</button>
+    <button class="mt" :class="{'faded': store.bill === 0 && store.customTipAmount === 0 && store.people === 1 && store.tipAmount === 0}" @click="store.resetAll()">RESET</button>
   </div>
 </template>
 
@@ -33,6 +33,9 @@ const store = useTipStore();
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.faded {
+  opacity: 0.3;
 }
 .greenish-txt {
   color: #759A9A;

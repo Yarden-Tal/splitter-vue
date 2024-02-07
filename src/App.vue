@@ -26,6 +26,9 @@ import MainTitle from './components/MainTitle.vue';
 html {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: auto;
+  font-family: 'Space Mono', monospace;
 }
 
 body {
@@ -48,6 +51,9 @@ main {
 }
 
 @media screen and (min-width: 768px) {
+  html {
+  height: 100%;
+  }
   .main-inner {
     flex-direction: row;
     gap: 2.5rem;
