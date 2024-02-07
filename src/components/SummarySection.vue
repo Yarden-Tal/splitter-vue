@@ -6,23 +6,29 @@
           <div class="white-txt">Tip Amount</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">${{ store.tipPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
+        <div class="amount-txt">${{ tipPerPerson }}</div>
       </div>
       <div class="flex mt">
         <div>
           <div class="white-txt">Total</div>
           <div class="greenish-txt">/ person</div>
         </div>
-        <div class="amount-txt">${{ store.totalPerPerson.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
+        <div class="amount-txt">${{ totalPerPerson }}</div>
       </div>
     </div>
-    <button class="mt" :class="{'faded': store.bill === 0 && store.customTipAmount === 0 && store.people === 1 && store.tipAmount === 0}" @click="store.resetAll()">RESET</button>
+    <button class="mt" :class="{'faded': showFade}" @click="store.resetAll()">RESET</button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useTipStore } from './../store'
+import { formatNumber } from '../utils';
 const store = useTipStore();
+
+const tipPerPerson = computed<string>(() => formatNumber(store.tipPerPerson));
+const totalPerPerson = computed<string>(() => formatNumber(store.totalPerPerson));
+const showFade = computed<boolean>(() => store.bill === 0 && store.customTipAmount === 0 && store.people === 1 && store.tipAmount === 0);
 </script>
 
 <style scoped>
