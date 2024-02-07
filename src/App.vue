@@ -35,7 +35,7 @@ body {
   background-color: #C5E4E8;
   box-sizing: border-box;
   margin: 0;
-  min-width: 280px;
+  min-width: 375px;
 }
 
 main {
